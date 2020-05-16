@@ -37,9 +37,9 @@ const random = length => {
   return num.toString(16).slice(0 - length);
 };
 const defaultTableParams = {
-  data: [[" Index", `Data1`, `Data2`, `Data3`]],
+  data: [[" Features", `Amazon S3`, `Azure Cloud Storage`, `Aliyun OSS`]],
   header: "row",
-  height: "",
+  height: 600,
   headerHeight: 30,
   rowHeight: 30,
   // wordWrap: 'break-word',
@@ -47,47 +47,22 @@ const defaultTableParams = {
   // textOverflow: 'clip',
   border: true,
   stripe: true,
-  showCheck: true,
+  showCheck: false,
   enableSearch: true,
   columnWidth: [
-    { column: 0, width: 120 },
-    { column: 1, width: 150 },
-    { column: 2, width: "30%" },
-    { column: 3, width: 800 }
+    { column: 0, width: 200 },
+    { column: 1, width: 300 },
+    { column: 2, width: 300 },
+    { column: 3, width: 300 }
   ],
-  fixed: 1,
-  sort: [0, 1],
+  fixed: 0,
+  sort: [],
   edit: {},
   highlight: {},
-  filter: [
-    {
-      column: 0,
-      content: [
-        { text: "> 3", value: 3 },
-        { text: "> 5", value: 5 },
-        { text: "> 7", value: 7 }
-      ],
-      method: (value, tableCell) => {
-        return tableCell.data > value;
-      }
-    },
-    {
-      column: 2,
-      content: [
-        { text: "1-Cell", value: "1-Cell" },
-        { text: "2-Cell", value: "2-Cell" },
-        { text: "3-Cell", value: "3-Cell" }
-      ],
-      method: (value, tableCell) => {
-        return String(tableCell.data)
-          .toLocaleLowerCase()
-          .includes(String(value).toLocaleLowerCase());
-      }
-    }
-  ],
-  pagination: true
-  // pageSize: 20,
-  // pageSizes: [5, 15, 30, 50, 100],
+  filter: [],
+  pagination: true,
+  pageSize: 100,
+  pageSizes: [100]
 };
 for (let i = 0; i < 200; i++) {
   defaultTableParams.data.push([
